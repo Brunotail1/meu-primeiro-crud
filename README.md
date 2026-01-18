@@ -35,3 +35,53 @@ Siga o passo a passo abaixo para configurar o ambiente de desenvolvimento:
 Abra o terminal e rode o comando:
 ```bash
 git clone [https://github.com/Brunotail1/meu-primeiro-crud.git](https://github.com/Brunotail1/meu-primeiro-crud.git)
+
+Entre na pasta do projeto:
+
+Bash
+cd meu-primeiro-crud
+2. Instale as dependências
+Baixe as bibliotecas do Laravel via Composer:
+
+Bash
+composer install
+3. Configure o ambiente
+Crie o arquivo de configuração do sistema copiando o exemplo:
+
+Bash
+# No Windows
+copy .env.example .env
+
+# No Linux/Mac
+cp .env.example .env
+Gere a chave de criptografia da aplicação:
+
+Bash
+php artisan key:generate
+4. Configure o Banco de Dados
+Abra o arquivo .env que você acabou de criar.
+
+Encontre a seção de banco de dados e configure conforme o seu ambiente local (exemplo abaixo):
+
+Ini, TOML
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nome_do_banco_que_voce_criou
+DB_USERNAME=root
+DB_PASSWORD=
+Lembre-se de criar um banco de dados vazio no seu MySQL com o nome definido acima.
+
+5. Crie as tabelas (Migrations)
+Execute o comando para criar a estrutura do banco de dados:
+
+Bash
+php artisan migrate
+6. Inicie o Servidor
+Tudo pronto! Agora é só rodar o servidor local:
+
+Bash
+php artisan serve
+Acesse o projeto no seu navegador em: http://localhost:8000/clientes
+
+Desenvolvido por Bruno Wozniak como parte de um desafio técnico de desenvolvimento web.
